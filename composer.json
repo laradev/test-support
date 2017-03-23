@@ -1,0 +1,40 @@
+{
+    "name": "laradev/test-support",
+    "description": "Laravel development test support",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eric VILLARD",
+            "email": "dev@eviweb.fr",
+            "homepage": "https://github.com/eviweb",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": "~7",
+        "illuminate/support": "~5",
+        "phpunit/phpunit": "~5",
+        "mockery/mockery": "~0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laradev\\Test\\Support\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laradev\\Test\\Support\\": [
+                "tests/feature/",
+                "tests/unit/"
+            ]
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

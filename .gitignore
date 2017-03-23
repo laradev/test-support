@@ -1,0 +1,5 @@
+/nbproject/private/
+##### begin composer #####
+/vendor/
+/composer.lock
+##### end composer #####
