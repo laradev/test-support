@@ -22,20 +22,25 @@ trait MockProvider
         m::close();
     }
     
+    final public function newMock($whatToMock = null):MockInterface
+    {
+        return is_null($whatToMock) ? m::mock() : m::mock($whatToMock);
+    }
+    
     final public function newAppMock():MockInterface
     {
-        return m::mock(Application::class);
+        return $this->newMock(Application::class);
     }
     
     final public function newConfigMock():MockInterface
     {
-        return m::mock(Repository::class);
+        return $this->newMock(Repository::class);
     }
     
     final public function newFunctionMock(string $functionName):CompositeExpectation
     {
         if (is_null(static::$functions)) {
-            static::$functions = m::mock();
+            static::$functions = $this->newMock();
         }
         
         return static::$functions->shouldReceive($functionName);

@@ -5,9 +5,16 @@ namespace Laradev\Test\Support\Traits;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Laradev\Test\Support\TestCase;
+use Mockery\MockInterface;
 
 final class MockProviderTest extends TestCase
 {
+    public function testNewMock()
+    {
+        $this->assertInstanceOf(MockInterface::class, $this->newMock());
+        $this->assertInstanceOf(Application::class, $this->newMock(Application::class));
+    }
+    
     public function testNewAppMock()
     {
         $this->assertInstanceOf(Application::class, $this->newAppMock());

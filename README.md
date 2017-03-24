@@ -31,6 +31,7 @@ Even if they can be used independently, it is more reliable to extends the `Test
 The `MockProvider` trait offers a set of factory methods to facilitate the creation of mocks of the main classes of [Laravel][laravel].    
 
 #### Factory methods
+- `newMock($whatToMock = null)`: returns an instance of `$whatToMock` or of `Mockery\MockInterface` if the argument value is _null_.
 - `newAppMock()`: returns an instance of `Illuminate\Contracts\Foundation\Application`
 - `newConfigMock()`: returns an instance of `Illuminate\Contracts\Config\Repository`
 - `newFunctionMock(string $functionName)`: should be used to create a mock of a function, it returns an instance of `Mockery\CompositeExpectation`
