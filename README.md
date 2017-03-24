@@ -29,17 +29,24 @@ Even if they can be used independently, it is more reliable to extends the `Test
 
 ### MockProvider
 The `MockProvider` trait offers a set of factory methods to facilitate the creation of mocks of the main classes of [Laravel][laravel].    
-- _newAppMock_: returns an instance of `Illuminate\Contracts\Foundation\Application`
-- _newConfigMock_: returns an instance of `Illuminate\Contracts\Config\Repository`
 
-As the mock engine behind the scene is [Mockery][mockery], all these instances implement the `Mockery\MockInterface` and then can be enhanced with expectations.
+#### Factory methods
+- `newAppMock()`: returns an instance of `Illuminate\Contracts\Foundation\Application`
+- `newConfigMock()`: returns an instance of `Illuminate\Contracts\Config\Repository`
+- `newFunctionMock(string $functionName)`: should be used to create a mock of a function, it returns an instance of `Mockery\CompositeExpectation`
 
-The `MockProvider` class has also an important method named `releaseMocks` that is automatically called at the end of each test.    
-This method as indicated by its explicit name, release all the mocks.
+As the mock engine behind the scene is [Mockery][mockery], all these instances implement the `Mockery\MockInterface` or `Mockery\ExpectationInterface` and then can be enhanced with expectations.
+
+#### Other methods
+- `releaseMocks()`: releases all the mocks, does some cleanup.
+- `useFunction(string $functionName, ...$args)`: static method to call as the body of a mocked function _(see [MockProviderTest][mockprovidertest]::testMockingFunctions() for an example on how to do this)_.
+
 
 >Note:    
->In case the `MockProvider` trait is used directly, it is important to note
->that you need to call the `releaseMocks` method by yourself.
+>While extending the `TestCase` abstract class, the `releaseMocks` method is 
+>automatically called at the end of each test in the `tearDown` method.    
+>If you intend to use the `MockProvider` trait directly, it is important
+>to note that you will need to call the `releaseMocks` method by yourself.
 
 License
 -------
@@ -47,3 +54,4 @@ This project is licensed under the terms of the [MIT License](/LICENSE)
 
 [laravel]: https://laravel.com/
 [mockery]: http://docs.mockery.io/en/stable/
+[mockprovidertest]: /tests/unit/Traits/MockProviderTest.php
