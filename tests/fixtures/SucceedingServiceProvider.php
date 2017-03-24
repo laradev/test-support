@@ -8,6 +8,9 @@ final class SucceedingServiceProvider extends ServiceProvider
 {
     const SERVICE_ID = 'succeeding';
     
+    /**
+     * {@inheritdoc}
+     */
     public function boot()
     {
         $config = self::getConfigFile();
@@ -19,6 +22,11 @@ final class SucceedingServiceProvider extends ServiceProvider
         $this->mergeConfigFrom($config, self::SERVICE_ID);
     }
     
+    /**
+     * Get the path of the package configuration path
+     * 
+     * @return string
+     */
     public static function getConfigFile():string
     {
         return __DIR__.'/config.php';

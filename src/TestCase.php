@@ -9,6 +9,9 @@ abstract class TestCase extends BaseTestCase
 {
     use Assertions;
     
+    /**
+     * {@inheritdoc}
+     */
     final protected function setUp()
     {
         parent::setUp();
@@ -16,8 +19,14 @@ abstract class TestCase extends BaseTestCase
         $this->doSetUp();
     }
     
+    /**
+     * Sub classes setUp handler
+     */
     abstract protected function doSetUp();
     
+    /**
+     * {@inheritdoc}
+     */
     final protected function tearDown()
     {
         $this->doTearDown();
@@ -27,5 +36,8 @@ abstract class TestCase extends BaseTestCase
         parent::tearDown();        
     }
     
+    /**
+     * Sub classes tearDown handler
+     */
     abstract protected function doTearDown();    
 }

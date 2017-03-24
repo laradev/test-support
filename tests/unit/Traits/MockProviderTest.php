@@ -40,11 +40,17 @@ final class MockProviderTest extends TestCase
         $this->assertTrue(callme($arg1, $arg2));            
     }
     
+    /**
+     * {@inheritdoc}
+     */
     protected function doSetUp()
     {
         
     }
-
+    
+    /**
+     * {@inheritdoc}
+     */
     protected function doTearDown()
     {
         

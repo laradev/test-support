@@ -4,6 +4,12 @@ namespace Laradev\Test\Support\Fixtures
 {
     use Laradev\Test\Support\Traits\AssertionsTest;
     
+    /**
+     * config_path fixture
+     * 
+     * @param string $path
+     * @return string
+     */
     function config_path($path)
     {
         return AssertionsTest::useFunction('config_path', $path);
@@ -136,17 +142,26 @@ use PHPUnit_Framework_AssertionFailedError;
             );
         }
 
+        /**
+         * {@inheritdoc}
+         */
         protected function doSetUp()
         {
             $this->newFunctionMock('config_path');
             $this->resetServiceProvider();
         }
 
+        /**
+         * {@inheritdoc}
+         */
         protected function doTearDown()
         {
 
         }
         
+        /**
+         * Reset the ServiceProvider static properties
+         */
         private function resetServiceProvider()
         {
             $statics = [
