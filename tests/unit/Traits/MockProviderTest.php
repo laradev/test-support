@@ -29,7 +29,7 @@ final class MockProviderTest extends TestCase
     {
         $arg1 = 'something';
         $arg2 = 'else';
-        $function = $this->newFunctionMock('callme')
+        $this->newFunctionMock('callme')
             ->with($arg1, $arg2)
             ->andReturn(true);
         function callme($arg1, $arg2)
