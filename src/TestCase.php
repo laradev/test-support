@@ -2,12 +2,12 @@
 
 namespace Laradev\Test\Support;
 
-use Laradev\Test\Support\Traits\MockProvider;
+use Laradev\Test\Support\Traits\Assertions;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-    use MockProvider;
+    use Assertions;
     
     final protected function setUp()
     {

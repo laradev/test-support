@@ -27,7 +27,8 @@
             "Laradev\\Test\\Support\\": [
                 "tests/feature/",
                 "tests/unit/"
-            ]
+            ],
+            "Laradev\\Test\\Support\\Fixtures\\": "tests/fixtures/"
         }
     },
     "extra": {

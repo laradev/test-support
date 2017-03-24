@@ -7,4 +7,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - package files
 - TestCase
 - traits:
+    + Assertions
     + MockProvider
