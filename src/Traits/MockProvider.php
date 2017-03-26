@@ -2,11 +2,13 @@
 
 namespace Laradev\Test\Support\Traits;
 
+use Illuminate\Container\Container;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Container\Container as ContainerContract;
 use Illuminate\Contracts\Foundation\Application;
 use Mockery as m;
-use Mockery\MockInterface;
 use Mockery\CompositeExpectation;
+use Mockery\MockInterface;
 
 trait MockProvider
 {
@@ -56,6 +58,21 @@ trait MockProvider
         return $this->newMock(Repository::class);
     }
     
+    /**
+     * Create an Illuminate container with a config mock
+     * 
+     * The config is accessible using 'config' key.
+     * 
+     * @return ContainerContract
+     */
+    final public function newAppContainerWithConfigMock():ContainerContract
+    {
+        $app = new Container();
+        $app['config'] = $this->newConfigMock();
+        
+        return $app;
+    }
+
     /**
      * Create a new function mock
      * 

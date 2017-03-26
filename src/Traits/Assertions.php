@@ -39,7 +39,7 @@ trait Assertions
             $defaultMessage = 'Failed asserting that the boot method merges the configuration.';
             $spy = new stdClass();
             $spy->called = false;
-            $app = ['config' => $this->newConfigMock()];
+            $app = $this->newAppContainerWithConfigMock();
             $app['config']
                 ->shouldReceive('get')
                 ->andReturn([])
@@ -75,7 +75,7 @@ trait Assertions
     {
         if (is_subclass_of($providerClass, ServiceProvider::class)) {
             $defaultMessage = 'Failed asserting that the boot method publishes the configuration.';
-            $app = ['config' => $this->newConfigMock()];
+            $app = $this->newAppContainerWithConfigMock();
             $app['config']
                 ->shouldIgnoreMissing()
                 ->shouldReceive('get')

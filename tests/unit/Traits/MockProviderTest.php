@@ -3,6 +3,7 @@
 namespace Laradev\Test\Support\Traits;
 
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Foundation\Application;
 use Laradev\Test\Support\TestCase;
 use Mockery\MockInterface;
@@ -40,6 +41,14 @@ final class MockProviderTest extends TestCase
         $this->assertTrue(callme($arg1, $arg2));            
     }
     
+    public function testNewAppContainerWithConfigMock()
+    {
+        $app = $this->newAppContainerWithConfigMock();
+        
+        $this->assertInstanceOf(Container::class, $app);
+        $this->assertInstanceOf(MockInterface::class, $app['config']);
+    }
+
     /**
      * {@inheritdoc}
      */

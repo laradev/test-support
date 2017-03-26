@@ -41,6 +41,7 @@ The `MockProvider` trait offers a set of factory methods to facilitate the creat
 - `newAppMock()`: returns an instance of `Illuminate\Contracts\Foundation\Application`.
 - `newConfigMock()`: returns an instance of `Illuminate\Contracts\Config\Repository`.
 - `newFunctionMock(string $functionName)`: should be used to create a mock of a function, it returns an instance of `Mockery\CompositeExpectation`.
+- `newAppContainerWithConfigMock()`: returns an instance of `Illuminate\Contracts\Container\Container` containing a config mock instance that is accessible using the key `config`.
 
 As the mock engine behind the scene is [Mockery][mockery], all these instances implement the `Mockery\MockInterface` or `Mockery\ExpectationInterface` and then can be enhanced with expectations.
 
