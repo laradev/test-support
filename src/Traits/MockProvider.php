@@ -24,6 +24,10 @@ trait MockProvider
      */
     final public function releaseMocks()
     {
+        if (!is_null(static::$functions)) {
+            static::$functions->mockery_teardown();
+            static::$functions = null;
+        }
         m::close();
     }
     

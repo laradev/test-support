@@ -62,6 +62,7 @@ final class MockProviderTest extends TestCase
      */
     protected function doTearDown()
     {
-        
+        $this->releaseMocks();
+        $this->assertNull(self::$functions);
     }
 }
